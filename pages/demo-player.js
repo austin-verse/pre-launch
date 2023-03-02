@@ -13,7 +13,6 @@ export default function DemoPlayer() {
 			<Head>
 				<title>퀀슘 | 데모플레이어</title>
 			</Head>
-			;
 			<DemoPlayerContent
 				logoURL={"/images/quansume_demoplayer_logo_white.png"}
 				imageURL={"/images/curator_main.png"}

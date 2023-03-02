@@ -30,7 +30,7 @@
 	font-weight: 500;
 	font-size: 2.4rem;
 	line-height: 4.4rem;
-	color: rgba(255, 255, 255, 0.8);
+	color: rgba(255, 255, 255, 1);
 }
 .link_outer {
 	margin-top: 5.9rem;
@@ -68,5 +68,9 @@
 @media screen and (max-width: 581px) {
 	.title {
 		margin-top: 10rem;
+	}
+	.desc {
+		font-size: 1.8rem;
+		line-height: 3rem;
 	}
 }

@@ -62,7 +62,7 @@ export default function DemoPlayerContent({ logoURL, imageURL }) {
 						<span> 이어폰 · 헤드폰 · 스피커</span>
 					</span>
 					를<span className={styles.color_green}> 온라인</span>으로 미리
-					<span className={styles.color_purple}> 체험해보고 구매</span>할 수
+					<span className={styles.color_green}> 체험해보고 구매</span>할 수
 					있다면 얼마나 편리할까요?
 				</p>
 
@@ -70,7 +70,7 @@ export default function DemoPlayerContent({ logoURL, imageURL }) {
 					<span className={styles.weight_bold}>
 						음향, 노이즈캔슬링, 통화품질
 					</span>
-					등 구매하기 전에는 알기 어려웠던
+					<span> </span>등 구매하기 전에는 알기 어려웠던
 					<span className={styles.weight_bold}> 음향기기의 특성</span>들을
 					<span className={styles.weight_bold}> 온라인</span>으로 편리하게
 					<span className={styles.weight_bold}> 체험해보고 구매</span>하세요. 곧

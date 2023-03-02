@@ -66,7 +66,7 @@ export default function CuratorContent({ logoURL, imageURL }) {
 					/>
 				</div>
 				<p className={styles.title}>
-					<span className={styles.color_purple}>자주 듣는 음악</span>을 통해
+					<span className={styles.color_green}>자주 듣는 음악</span>을 통해
 					나에게 어울리는
 					<span className={styles.color_green}>
 						<span> 이어폰 · 헤드폰 · 스피커</span>
