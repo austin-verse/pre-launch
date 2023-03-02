@@ -1,0 +1,321 @@
+.outer {
+	width: 100vw;
+	height: auto;
+	background-color: #1a1a1a;
+}
+.inner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.inner p {
+	text-align: center;
+}
+.logo_image {
+	margin-top: 5rem;
+}
+.main_image {
+	margin-top: 5.2rem;
+}
+.main_image_png {
+	width: 41.437rem;
+}
+.title {
+	margin-top: 2.4rem;
+	font-weight: 800;
+	font-size: 4.2rem;
+	line-height: 5.8rem;
+	text-align: center;
+	color: #ffffff;
+	width: 50%;
+}
+.desc {
+	margin-top: 2.5rem;
+	font-weight: 500;
+	font-size: 2rem;
+	line-height: 3.6rem;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.7);
+	width: 50%;
+}
+
+.weight_bold {
+	font-weight: 700;
+	color: #ffffff;
+}
+.color_green {
+	color: #01ffd1;
+}
+
+.color_purple {
+	color: #ed7cff;
+}
+.button {
+	margin-top: 4.2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	width: 29.2rem;
+	height: 6.14rem;
+	border-radius: 7.5rem;
+	background-color: #01ffd2;
+}
+.button_text {
+	font-weight: 700;
+	font-size: 2.2rem;
+	line-height: 100%;
+	color: #191919;
+}
+.email_outer {
+	margin-top: 5.1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.emailLabel {
+	text-align: center;
+	font-weight: 500;
+	font-size: 2rem;
+	line-height: 3.2rem;
+	color: #ececec;
+}
+.form {
+	margin-top: 2.8rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.input {
+	border: none;
+	padding-left: 3rem;
+	font-size: 2rem;
+	margin-right: 1rem;
+	width: 36rem;
+	height: 5rem;
+	border-radius: 6.1rem;
+	background-color: #ffffff;
+}
+.submit_button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 9.7rem;
+	height: 5rem;
+	border-radius: 6.1rem;
+	border: none;
+	background-color: #01ffd2;
+}
+
+.submit_button p {
+	font-weight: 600;
+	font-size: 2rem;
+	line-height: 100%;
+	color: #191919;
+}
+.email_validation_message {
+	margin-top: 2rem;
+	font-size: 2rem;
+	color: #ed7cff;
+}
+.email_validation_message_hide {
+	display: none;
+}
+
+.beta_test_button_text {
+	margin-top: 0.3rem;
+	margin-right: 1.2rem;
+	font-weight: 500;
+	font-size: 1.8rem;
+	line-height: 100%;
+	color: #dddddd;
+}
+.beta_test_button_text:hover {
+	font-weight: 500;
+	font-size: 1.8rem;
+	line-height: 100%;
+	color: #ffffff;
+}
+
+.submit_finished_outer {
+	margin-top: 6rem;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+.alert_done_title {
+	margin-top: 3rem;
+	font-weight: 700;
+	font-size: 2.8rem;
+	line-height: 4rem;
+	color: #01ffd1;
+}
+.alert_done_desc {
+	margin-bottom: 3rem;
+	font-weight: 500;
+	font-size: 1.8rem;
+	line-height: 3.2rem;
+	color: #cecece;
+}
+
+@media screen and (max-width: 921px) {
+	.title {
+		width: 80%;
+	}
+	.desc {
+		width: 70%;
+	}
+}
+@media screen and (max-width: 562px) {
+	.title {
+		font-size: 4rem;
+	}
+	.desc {
+		font-size: 1.8rem;
+	}
+
+	.input {
+		font-size: 1.8rem;
+		width: 28rem;
+		height: 4.6rem;
+	}
+	.submit_button {
+		width: 9.7rem;
+		height: 4.6rem;
+	}
+	.emailLabel {
+		width: 70%;
+		font-size: 1.8rem;
+		line-height: 3rem;
+		color: #ececec;
+	}
+}
+@media screen and (max-width: 486px) {
+	.main_image_png {
+		width: 31rem;
+		height: 19.45rem;
+	}
+
+	.input {
+		font-size: 1.8rem;
+		width: 24rem;
+		height: 4.6rem;
+	}
+	.submit_button {
+		width: 7.8rem;
+		height: 4.6rem;
+	}
+	.emailLabel {
+		width: 70%;
+		font-size: 1.8rem;
+		line-height: 3rem;
+		color: #ececec;
+	}
+	.email_validation_message {
+		font-size: 1.8rem;
+	}
+}
+@media screen and (max-width: 410px) {
+	.title {
+		width: 85%;
+		font-size: 3.8rem;
+		line-height: 5.2rem;
+	}
+	.desc {
+		width: 85%;
+	}
+
+	.input {
+		margin-right: 0.6rem;
+		font-size: 1.6rem;
+		width: 23rem;
+		height: 4.6rem;
+	}
+	.submit_button {
+		width: 7rem;
+		height: 4.4rem;
+	}
+
+	.submit_button p {
+		font-size: 1.6rem;
+	}
+	.br {
+		display: none;
+	}
+	.emailLabel {
+		width: 80%;
+		font-size: 1.8rem;
+		line-height: 3rem;
+		color: #ececec;
+	}
+	.email_validation_message {
+		font-size: 1.8rem;
+	}
+}
+@media screen and (max-width: 390px) {
+	.input {
+		margin-right: 0.6rem;
+		font-size: 1.6rem;
+		width: 22rem;
+		height: 4.4rem;
+	}
+	.submit_button {
+		width: 6rem;
+		height: 4.4rem;
+	}
+
+	.submit_button p {
+		font-size: 1.6rem;
+	}
+	.br {
+		display: none;
+	}
+	.emailLabel {
+		width: 80%;
+		font-size: 1.8rem;
+		line-height: 3rem;
+		color: #ececec;
+	}
+	.email_validation_message {
+		font-size: 1.8rem;
+	}
+}
+@media screen and (max-width: 351px) {
+	.main_image_png {
+		width: 25rem;
+		height: 15.69rem;
+	}
+	.input {
+		margin-right: 0.6rem;
+		padding-left: 1.5rem;
+		font-size: 1.4rem;
+		width: 20rem;
+		height: 3.9rem;
+	}
+	.submit_button {
+		width: 5rem;
+		height: 3.9rem;
+	}
+
+	.submit_button p {
+		font-size: 1.6rem;
+	}
+	.br {
+		display: none;
+	}
+	.emailLabel {
+		width: 80%;
+		font-size: 1.8rem;
+		line-height: 3rem;
+		color: #ececec;
+	}
+	.email_validation_message {
+		font-size: 1.8rem;
+	}
+	.beta_test_button_text {
+		margin-right: 0.7rem;
+	}
+}
