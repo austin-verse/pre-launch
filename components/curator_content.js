@@ -6,8 +6,12 @@ import Link from "next/link";
 export default function CuratorContent({ logoURL, imageURL }) {
 	const [isButtonClicked, setIsButtonClicked] = useState(false);
 	const [isSubmitButtonClicked, setIsSubmitButtonClicked] = useState(false);
+	const [isFeedbackSubmitButtonClicked, setIsFeedbackSubmitButtonClicked] =
+		useState(false);
+	const [isFeedbackRegexPassed, setIsFeedbackRegexPassed] = useState(0);
 	const [isEmailRegexPassed, setIsEmailRegexPassed] = useState(0);
 	const curatorEmailRef = useRef();
+	const curatorFeedbackRef = useRef();
 	const buttonClickHandler = () => {
 		setIsButtonClicked(true);
 		fetch("/api/curator/click-try", {
@@ -29,7 +33,7 @@ export default function CuratorContent({ logoURL, imageURL }) {
 			fetch("/api/curator/enter-email", {
 				method: "POST",
 				body: JSON.stringify({
-					message: "curator try button clicked",
+					message: "curator email submit",
 					email: email,
 				}),
 				headers: {
@@ -40,6 +44,26 @@ export default function CuratorContent({ logoURL, imageURL }) {
 			setIsEmailRegexPassed(1);
 		}
 	};
+
+	const feedbackSubmitButtonClickHandler = () => {
+		const feedback = curatorFeedbackRef.current.value;
+		if (feedback.length > 0) {
+			setIsFeedbackSubmitButtonClicked(true);
+			fetch("/api/curator/enter-feedback", {
+				method: "POST",
+				body: JSON.stringify({
+					message: "curator feedback",
+					feedback: feedback,
+				}),
+				headers: {
+					"Content-Type": "application/json",
+				},
+			});
+		} else {
+			setIsFeedbackRegexPassed(1);
+		}
+	};
+
 	const betaTestClickHandler = () => {
 		fetch("/api/curator/click-beta-test", {
 			method: "POST",
@@ -66,7 +90,7 @@ export default function CuratorContent({ logoURL, imageURL }) {
 					/>
 				</div>
 				<p className={styles.title}>
-					<span className={styles.color_green}>자주 듣는 음악</span>을 통해
+					<span className={styles.color_purple}>자주 듣는 음악</span>을 통해
 					나에게 어울리는
 					<span className={styles.color_green}>
 						<span> 이어폰 · 헤드폰 · 스피커</span>
@@ -146,7 +170,7 @@ export default function CuratorContent({ logoURL, imageURL }) {
 						</div>
 						<p className={styles.alert_done_title}>알림 신청이 완료되었어요!</p>
 					</div>
-				) : null}{" "}
+				) : null}
 				{isButtonClicked ? (
 					<Link
 						href={"https://beta.quansume.com"}
@@ -173,6 +197,53 @@ export default function CuratorContent({ logoURL, imageURL }) {
 						/>
 					</Link>
 				) : null}
+				{!isFeedbackSubmitButtonClicked ? (
+					<div className={styles.email_outer}>
+						<p className={styles.emailLabel}>
+							저희 서비스에 대한 의견을 알려주세요.
+							<br className={styles.br} />
+						</p>
+						<form className={styles.form}>
+							<input
+								required
+								className={styles.input}
+								placeholder="피드백을 입력해주세요."
+								type="email"
+								ref={curatorFeedbackRef}
+							/>
+							<button
+								className={styles.submit_button}
+								type="button"
+								onClick={() => {
+									feedbackSubmitButtonClickHandler();
+								}}
+							>
+								<p>전달</p>
+							</button>
+						</form>
+						<p
+							className={
+								isFeedbackRegexPassed === 1
+									? styles.email_validation_message
+									: styles.email_validation_message_hide
+							}
+						>
+							피드백을 입력해주세요.
+						</p>
+					</div>
+				) : (
+					<div className={styles.submit_finished_outer}>
+						<div className={styles.done_image}>
+							<Image
+								src={"/images/done.png"}
+								alt="done"
+								width={60}
+								height={60}
+							/>
+						</div>
+						<p className={styles.alert_done_title}>피드백이 전송되었습니다.</p>
+					</div>
+				)}
 			</div>
 		</div>
 	);

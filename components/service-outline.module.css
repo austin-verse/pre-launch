@@ -161,6 +161,14 @@
 	color: #cecece;
 }
 
+.feedback_sent_alert {
+	margin-top: 3rem;
+	font-weight: 700;
+	font-size: 2rem;
+	line-height: 4rem;
+	color: #01ffd1;
+}
+
 @media screen and (max-width: 921px) {
 	.title {
 		width: 80%;

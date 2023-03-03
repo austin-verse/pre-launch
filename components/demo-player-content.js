@@ -6,6 +6,11 @@ export default function DemoPlayerContent({ logoURL, imageURL }) {
 	const [isButtonClicked, setIsButtonClicked] = useState(false);
 	const [isSubmitButtonClicked, setIsSubmitButtonClicked] = useState(false);
 	const [isEmailRegexPassed, setIsEmailRegexPassed] = useState(0);
+	const [isFeedbackSubmitButtonClicked, setIsFeedbackSubmitButtonClicked] =
+		useState(false);
+	const [isFeedbackRegexPassed, setIsFeedbackRegexPassed] = useState(0);
+	const demoPlayerFeedbackRef = useRef();
+
 	const demoPlayerEmailRef = useRef();
 	const buttonClickHandler = () => {
 		setIsButtonClicked(true);
@@ -39,6 +44,24 @@ export default function DemoPlayerContent({ logoURL, imageURL }) {
 			setIsEmailRegexPassed(1);
 		}
 	};
+	const feedbackSubmitButtonClickHandler = () => {
+		const feedback = demoPlayerFeedbackRef.current.value;
+		if (feedback.length > 0) {
+			setIsFeedbackSubmitButtonClicked(true);
+			fetch("/api/demo-player/enter-feedback", {
+				method: "POST",
+				body: JSON.stringify({
+					message: "demo-player feedback",
+					feedback: feedback,
+				}),
+				headers: {
+					"Content-Type": "application/json",
+				},
+			});
+		} else {
+			setIsFeedbackRegexPassed(1);
+		}
+	};
 
 	// product name swap
 	return (
@@ -65,7 +88,6 @@ export default function DemoPlayerContent({ logoURL, imageURL }) {
 					<span className={styles.color_green}> 체험해보고 구매</span>할 수
 					있다면 얼마나 편리할까요?
 				</p>
-
 				<p className={styles.desc}>
 					<span className={styles.weight_bold}>
 						음향, 노이즈캔슬링, 통화품질
@@ -76,7 +98,6 @@ export default function DemoPlayerContent({ logoURL, imageURL }) {
 					<span className={styles.weight_bold}> 체험해보고 구매</span>하세요. 곧
 					여러분 앞으로 다가갑니다!
 				</p>
-
 				{/* 관심있어요 버튼 */}
 				{!isButtonClicked ? (
 					<button
@@ -88,7 +109,6 @@ export default function DemoPlayerContent({ logoURL, imageURL }) {
 						<p className={styles.button_text}>사용해볼래요!</p>
 					</button>
 				) : null}
-
 				{/* 이메일 폼 */}
 				{isButtonClicked && !isSubmitButtonClicked ? (
 					<div className={styles.email_outer}>
@@ -125,7 +145,7 @@ export default function DemoPlayerContent({ logoURL, imageURL }) {
 							이메일을 정확히 입력해주세요.
 						</p>
 					</div>
-				) : null}
+				) : null}{" "}
 				{isButtonClicked == true && isSubmitButtonClicked == true ? (
 					<div className={styles.submit_finished_outer}>
 						<div className={styles.done_image}>
@@ -138,7 +158,54 @@ export default function DemoPlayerContent({ logoURL, imageURL }) {
 						</div>
 						<p className={styles.alert_done_title}>알림 신청이 완료되었어요!</p>
 					</div>
-				) : null}
+				) : null}{" "}
+				{!isFeedbackSubmitButtonClicked ? (
+					<div className={styles.email_outer}>
+						<p className={styles.emailLabel}>
+							저희 서비스에 대한 의견을 알려주세요.
+							<br className={styles.br} />
+						</p>
+						<form className={styles.form}>
+							<input
+								required
+								className={styles.input}
+								placeholder="피드백을 입력해주세요."
+								type="email"
+								ref={demoPlayerFeedbackRef}
+							/>
+							<button
+								className={styles.submit_button}
+								type="button"
+								onClick={() => {
+									feedbackSubmitButtonClickHandler();
+								}}
+							>
+								<p>전달</p>
+							</button>
+						</form>
+						<p
+							className={
+								isFeedbackRegexPassed === 1
+									? styles.email_validation_message
+									: styles.email_validation_message_hide
+							}
+						>
+							피드백을 입력해주세요.
+						</p>
+					</div>
+				) : (
+					<div className={styles.submit_finished_outer}>
+						<div className={styles.done_image}>
+							<Image
+								src={"/images/done.png"}
+								alt="done"
+								width={60}
+								height={60}
+							/>
+						</div>
+						<p className={styles.alert_done_title}>피드백이 전송되었습니다.</p>
+					</div>
+				)}
 			</div>
 		</div>
 	);
